@@ -1,0 +1,282 @@
+﻿
+/*--------------------------------------Index----------------------------------------------------*/
+body {
+    background: #eeeeee;
+}
+
+.card-dash {
+    transition: all .2s ease-in;
+    cursor: pointer;
+    box-sshadow: 0 0 5px rgba(0,0, 0,0.25);
+}
+
+    .card-dash:hover {
+        opacity: 0.8;
+    }
+
+.cours {
+    background: linear-gradient(to right, hsl(203deg 99% 49% / 85%), hsl(203, 96%, 33%));
+}
+
+.examen {
+    background: linear-gradient(to right, #fe7279,#f54f9e);
+}
+
+.prof {
+    background: linear-gradient(to right, hsl(288, 100%, 75%), hsl(317, 92%, 36%));
+}
+
+.layer .fas {
+   opacity:0.9;
+    
+}
+/*--------------------------------------Card Cours----------------------------------------------------*/
+.card {
+    background: #fff;
+    border-radius: 4px;
+    box-shadow: 1px 2px 5px rgba(34, 35, 58, 0.25);
+    max-width: 99%;
+    min-width: 220px;
+    display: flex;
+    flex-direction: row;
+    border-radius: 10px;
+    position: relative;
+    height: 120px;
+}
+
+    .card h2 {
+        margin: 0;
+        padding: 0 1rem;
+    }
+
+    .card .title {
+        padding: 1rem;
+        text-align: right;
+        color: green;
+        font-weight: bold;
+        font-size: 12px;
+    }
+
+    .card .desc {
+        padding: 0.5rem 1rem;
+        font-size: 12px;
+    }
+
+    .card .actions {
+        
+        grid-template-columns: repeat(3, 1fr);
+     
+        bottom: 5px;
+         
+        padding: 0rem 1rem;
+        justify-content: center;
+        width: 100%;
+        padding-top: 2px;
+        text-align: right;
+    }
+
+    .card svg {
+        width: 85px;
+        height: 85px;
+        margin: 0 auto;
+    }
+
+.img-avatar {
+    width: 60px;
+    height: 60px;
+    position: absolute;
+    border-radius: 50%;
+    border: 4px solid white;
+    /*background-image: linear-gradient(-60deg, #16a085 0%, #f4d03f 100%); */
+    top: 15px;
+    left: 85px;
+}
+
+
+.card-text {
+    display: grid;
+    grid-template-columns: 1fr 11fr;
+}
+
+.title-total {
+    padding: 1em 0.5em 0em 0em;
+   
+}
+
+path {
+    fill: white;
+}
+
+.img-portada {
+    width: 100%;
+}
+
+.portada {
+    width: 100%;
+    border-top-left-radius: 20px;
+    border-bottom-left-radius: 20px;
+    /*background-image: url("https://m.media-amazon.com/images/S/aplus-media/vc/cab6b08a-dd8f-4534-b845-e33489e91240._CR75,0,300,300_PT0_SX300__.jpg"); */
+    background-color: white;
+    background-position: bottom center;
+    background-size: cover;
+    border-right: 6px solid rgba(0,0,0,.048);
+}
+
+button {
+    border: none;
+    background: none;
+    font-size: 24px;
+    color: #8bc34a;
+    cursor: pointer;
+    transition: .5s;
+}
+
+
+
+
+
+
+/*--------------------------------------Card Matiere----------------------------------------------------*/
+.course {
+    background-color: #fff;
+    border-radius: 10px;
+    box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.2);
+    display: flex;
+    max-width: 94%;
+    margin: 10px 0px;
+    overflow: hidden;
+    max-width: 890px;
+    min-width: 320px;
+}
+
+    .course h6 {
+        opacity: 0.6;
+        margin: 0;
+        letter-spacing: 1px;
+        text-transform: uppercase;
+    }
+
+    .course h2 {
+        letter-spacing: 1px;
+        margin: 10px;
+    }
+
+.course-preview {
+    background-color: #0277bd;
+    color: #fff;
+    padding: 30px 15px;
+    width: 150px;
+    height: 154px;
+}
+
+    .course-preview a {
+        color: #fff;
+        display: inline-block;
+        font-size: 9px;
+        opacity: 0.6;
+        margin-top: 30px;
+        min-width: 80px;
+        text-decoration: none;
+    }
+
+.course-info {
+    padding: 30px 15px;
+    position: relative;
+    width: 100%;
+}
+
+.progress-container {
+    position: absolute;
+    top: 30px;
+    right: 30px;
+    text-align: right;
+    width: 150px;
+}
+
+.progress {
+    background-color: #ddd;
+    border-radius: 3px;
+    height: 5px;
+    width: 100%;
+}
+
+    .progress::after {
+        border-radius: 3px;
+        background-color: #2A265F;
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        height: 5px;
+        width: 66%;
+    }
+
+.progress-text {
+    font-size: 10px;
+    opacity: 0.6;
+    letter-spacing: 1px;
+}
+
+.btnn {
+    background-color: hsl(204deg 74% 56%);
+    border: 0;
+    border-radius: 50px;
+    box-shadow: 0 10px 10px rgba(0, 0, 0, 0.2);
+    color: #fff;
+    font-size: 16px;
+    padding: 12px 25px;
+    position: absolute;
+    bottom: 10px;
+    right: 30px;
+    letter-spacing: 1px;
+}
+
+.floating-btn {
+    border-radius: 26.5px;
+    background-color: #001F61;
+    border: 1px solid #001F61;
+    box-shadow: 0 16px 22px -17px #03153B;
+    color: #fff;
+    cursor: pointer;
+    font-size: 16px;
+    line-height: 20px;
+    padding: 12px 20px;
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    z-index: 999;
+}
+
+    .floating-btn:hover {
+        background-color: #ffffff;
+        color: #001F61;
+    }
+
+    .floating-btn:focus {
+        outline: none;
+    }
+
+.floating-text {
+    background-color: #001F61;
+    border-radius: 10px 10px 0 0;
+    color: #fff;
+    font-family: 'Muli';
+    padding: 7px 15px;
+    position: fixed;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    text-align: center;
+    z-index: 998;
+}
+
+    .floating-text a {
+        color: #FF7500;
+        text-decoration: none;
+    }
+
+
+
+.floating-btn {
+    right: 10px;
+}

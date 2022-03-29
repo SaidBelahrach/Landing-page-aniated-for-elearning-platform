@@ -1,0 +1,124 @@
+﻿@model projet_PFA.Models.HomeModel
+@using Microsoft.AspNet.Identity
+@{
+    ViewBag.Title = "Accueil";
+}
+<link href="~/Content/examCard.css" rel="stylesheet" />
+<link href="~/Content/home.css" rel="stylesheet" />
+<div>
+    <div class="row gap-20 bs-white p-1">
+        <div class="col-md-4 col-sm-4  my-2">
+            <div class="card-dash cours bg-successs text-white rounded px-3 py-xl-4 py-md-1  d-flex" onclick='window.location.href ="/Cours/MatiereList"'>
+                <div class="layer w-100">
+                    <h2 class="mt-1 mb-4 ">@Model.cours.Count()</h2>
+                    <div class="peer">
+                        <span class="h4">Cours</span>
+                    </div>
+                </div>
+                <div class="layer w-100">
+                    <div class=" text-right" style="justify-content:space-between">
+                        <div class="  p-3">
+                            <i class="fas fa-file-invoice" style="font-size:3.8rem;"></i>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-4 col-sm-4 my-2 ">
+            <div class="card-dash examen bg-successs text-white rounded px-3 py-xl-4 py-md-1   d-flex" onclick='window.location.href ="/Examen"'>
+                <div class="layer w-100">
+                    <h2 class="mt-1 mb-4 ">@Model.examens.Count()</h2>
+                    <div class="peer">
+                        <span class="h4 ">Examens</span>
+                    </div>
+                </div>
+                <div class="layer w-100">
+                    <div class=" text-right" style="justify-content:space-between">
+                        <div class="  p-3">
+                            <i class="fas fa-tachometer-alt" style="font-size:3.8rem;"></i>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        @*       @if (User.IsInRole("Etudiant"))
+            {*@
+        <div class="col-md-4 col-sm-4  my-2">
+            <div class="card-dash prof bg-successs text-white rounded px-3 py-xl-4 py-md-1 d-flex" onclick='window.location.href ="/Chat"'>
+                <div class="layer w-100">
+                    <h2 class="mt-1 mb-4 ">@Model.nbProf</h2>
+                    <div class="peer">
+                        <span class="h4">Enseignants</span>
+                    </div>
+                </div>
+                <div class="layer w-100">
+                    <div class=" text-right" style="justify-content:space-between">
+                        <div class="  p-3">
+                            <i class="fas fa-users" style="font-size:3.8rem;"></i>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div> 
+    </div>
+    <div class="bg-whsite mt-2" style="display:flex;justify-content:space-between;flex-wrap:wrap;">
+        <div class="main-elmts" style="widsth: 62.8%; ">
+            <div class="border bg-white rounded ">
+                <div class="text-secondary px-2 border-bottom pb-1" style="display:flex;justify-content:space-between">
+                    <h4>Examens</h4>
+                    <a class="pt-3 mt-1" href="/Examen">Voir Tout</a>
+                </div>
+                <div class="py-3" style=" width:100%;display:flex;flex-wrap:wrap;justify-content:center;">
+                    @foreach (var item in Model.examens.OrderBy(e => e.dateDebut).Take(3))
+                    {
+                        @Html.Partial("_ExamCard", item)
+                    }
+                </div>
+            </div>
+            <div class="border bg-white rounded mt-2">
+                <div class="text-secondary px-2 border-bottom pb-1" style="display:flex;justify-content:space-between">
+                    <h4>Cours</h4>
+                    <a class="pt-3 mt-1" href="/Cours/MatiereList">Voir Tout</a>
+                </div>
+                <div class="pb-4 px-2" style=" width:100%;display:flex;flex-wrap:wrap;justify-content:center;">
+                    @foreach (var item in Model.cours.OrderByDescending(c => c.DateAjout).Take(6))
+                    {
+                        @Html.Partial("_CardCours", item)
+                    }
+                </div>
+            </div>
+            <div class="border bg-white rounded mt-2">
+                <div class="text-secondary px-2 border-bottom pb-1" style="display:flex;justify-content:space-between">
+                    <h4>Matieres</h4>
+                    <a class="pt-3 mt-1" href="/Cours/MatiereList">Voir Tout</a>
+                </div>
+                <div class="pb-4 px-2" style=" width:100%;display:flex;flex-wrap:wrap;justify-content:center;">
+                    @foreach (var item in Model.matieres.Take(4))
+                    {
+                        @Html.Partial("_CardMatiere", item)
+                    }
+                </div>
+            </div>
+        </div>
+        <div class="bordser side-container bg-whsite  " style="wisdth:37%;min-width:305px;">
+            <div class=" bg-white rounded p-3">
+                <h4 class="text-secondary text-center">Calendier des examens</h4>
+                @Html.Partial("_ExamsCalendar", Model.examens)
+            </div>
+            <div class="border rounded  bg-white  p-3 px-5 mt-2">
+                <h4 class="text-secondary text-center">Utilisateurs En Ligne</h4>
+                @if (Model.OnlineUsers.Count == 0)
+                {
+                    <p class="text-center text-secondary pt-4">Aucun utilisateur</p>
+                }
+                @foreach (var user in Model.OnlineUsers)
+                {
+                    <div class=" border-bottom  " style="display: flex; ">
+                        <h4 class="text-prsimary w-100" style="wsidth:150px;">@user.NomComplet</h4>
+                        @Html.ActionLink(" ", "Messagerie", "Chat", new { contact = user.Id, id = User.Identity.GetUserId() }, new { @class = "h4 text-success fas fa-comment-dots", @style = "text-decoration:none; " })
+                    </div>
+                }
+            </div>
+        </div>
+    </div>
+</div> 
